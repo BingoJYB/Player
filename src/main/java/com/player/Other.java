@@ -11,8 +11,11 @@ public class Other extends Role {
     }
 
     @Override
-    public String receiveMessage(Role from, String message) {
-        this.receivedMessageCount++;
+    public String receiveMessage(Role from, String message) throws Exception {
+        if (++this.receivedMessageCount > 10) {
+            throw new Exception("Message number exceeds!");
+        }
+
         message += " " + this.receivedMessageCount;
         return this.sendMessage(from, message);
     }

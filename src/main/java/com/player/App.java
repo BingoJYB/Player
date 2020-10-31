@@ -3,7 +3,7 @@ package com.player;
 import com.player.api.Role;
 
 /**
- * Hello world!
+ * Player game
  *
  */
 public class App {
@@ -11,8 +11,12 @@ public class App {
         Role player1 = Player.createPlayer("initiator");
         Role player2 = Player.createPlayer("receiver");
 
-        System.out.println(player1.sendMessage(player2, "hello player"));
-        System.out.println(player1.sendMessage(player2, "hello player"));
-        System.out.println(player1.sendMessage(player2, "hello player"));
+        try {
+            while (true) {
+                System.out.println(player1.sendMessage(player2, "hello player"));
+            }
+        } catch (Exception e) {
+            System.out.println("Game finished!");
+        }
     }
 }

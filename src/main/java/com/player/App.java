@@ -4,7 +4,8 @@ import com.player.api.Role;
 import com.player.logging.Logging;
 
 /**
- * Player game
+ * A game in which an initiator sends a message and the other player sends back
+ * the received message concatenating with message counter
  *
  */
 public class App {

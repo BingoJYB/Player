@@ -1,1 +1,7 @@
+com/player/Initiator.class
 com/player/App.class
+com/player/logging/Logging.class
+com/player/logging/Logging$1.class
+com/player/Other.class
+com/player/api/Role.class
+com/player/Player.class

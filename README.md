@@ -17,3 +17,7 @@ The use case for this task is as bellow:
 6. document for every class the responsibilities it has.
 
 7. opposite to 5: have every player in a separate JAVA process (different PID).
+
+Run
+- `mvn clean package`
+- `java -jar target/player-0.0.1.jar`

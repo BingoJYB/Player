@@ -8,8 +8,14 @@ import com.player.logging.Logging;
  *
  */
 public class Player {
+    /**
+     * Player factory
+     * 
+     * @param name a player name
+     * @return returns a player role
+     */
     public static Role createPlayer(String name) {
-        Logging.log(name + " joins in the game.", Other.class.getName());
+        Logging.log(name + " joins in the game.", Player.class.getName());
 
         switch (name) {
             case "initiator":

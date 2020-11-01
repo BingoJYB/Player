@@ -10,6 +10,14 @@ import com.player.logging.Logging;
  *
  */
 public class Player {
+    /**
+     * Player factory
+     * 
+     * @param name a player name
+     * @param ip   a player ip address
+     * @param port a player port number
+     * @return returns a player role
+     */
     public static Role createPlayer(String name, String ip, int port) throws IOException {
         Logging.log(name + " joins in the game.", Player.class.getName());
 

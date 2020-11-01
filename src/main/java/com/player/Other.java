@@ -19,8 +19,14 @@ public class Other extends Role {
     private Socket clientSocket;
     private PrintWriter out;
     private BufferedReader in;
+    /**
+     * Received message number
+     */
     private int receivedMessageCounter = 0;
-    private String name;
+    /**
+     * Player name
+     */
+    private final String name;
 
     Other(String name, int port) throws IOException {
         this.name = name;
@@ -30,11 +36,17 @@ public class Other extends Role {
         this.in = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
     }
 
+    /**
+     * @return the player name
+     */
     @Override
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Start the non initiator process. Stop the game after getting 10 messages
+     */
     @Override
     public void start() throws IOException {
         while (true) {
@@ -52,12 +64,24 @@ public class Other extends Role {
         }
     }
 
+    /**
+     * Receive message from another player
+     * 
+     * @return returns received message
+     */
     @Override
     public String receiveMessage() throws IOException {
         this.receivedMessageCounter++;
         return this.in.readLine();
     }
 
+    /**
+     * Send message to another player
+     * 
+     * @param message the message sent to the other player
+     * @return returns the sent message concatenated with the message counter that
+     *         the other player sent
+     */
     @Override
     public String sendMessage(String message) throws IOException {
         message += " " + this.receivedMessageCounter;
@@ -65,6 +89,10 @@ public class Other extends Role {
         return message;
     }
 
+    /**
+     * Stop initiator process by closing all the connections
+     * 
+     */
     @Override
     public void stop() throws IOException {
         this.in.close();

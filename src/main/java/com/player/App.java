@@ -12,6 +12,9 @@ import com.player.logging.Logging;
  */
 public class App {
     public static void main(String[] args) throws IOException {
+        /**
+         * Player name
+         */
         String name = null;
 
         try {

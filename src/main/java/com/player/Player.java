@@ -1,5 +1,7 @@
 package com.player;
 
+import java.io.IOException;
+
 import com.player.api.Role;
 import com.player.logging.Logging;
 
@@ -8,14 +10,14 @@ import com.player.logging.Logging;
  *
  */
 public class Player {
-    public static Role createPlayer(String name) {
-        Logging.log(name + " joins in the game.", Other.class.getName());
+    public static Role createPlayer(String name, String ip, int port) throws IOException {
+        Logging.log(name + " joins in the game.", Player.class.getName());
 
         switch (name) {
             case "initiator":
-                return new Initiator();
+                return new Initiator(ip, port);
             default:
-                return new Other(name);
+                return new Other(name, port);
         }
     }
 }

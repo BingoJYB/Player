@@ -1,5 +1,7 @@
 package com.player;
 
+import java.io.IOException;
+
 import com.player.api.Role;
 import com.player.logging.Logging;
 
@@ -9,15 +11,23 @@ import com.player.logging.Logging;
  *
  */
 public class App {
-    public static void main(String[] args) {
-        Role player1 = Player.createPlayer("initiator");
-        Role player2 = Player.createPlayer("other player");
+    public static void main(String[] args) throws IOException {
+        String name = null;
 
         try {
-            while (true) {
-                player1.sendMessage(player2, "hello player");
-            }
+            name = args[0];
+        } catch (IndexOutOfBoundsException e) {
+            Logging.log("Invalid player name", App.class.getName());
+            System.exit(1);
+        }
+
+        Role player = Player.createPlayer(name, "127.0.0.1", 5000);
+
+        try {
+            player.start();
         } catch (Exception e) {
+            player.stop();
+        } finally {
             Logging.log("Game Over!", App.class.getName());
         }
     }

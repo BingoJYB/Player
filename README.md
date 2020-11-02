@@ -18,6 +18,8 @@ The use case for this task is as bellow:
 
 7. opposite to 5: have every player in a separate JAVA process (different PID).
 
+Different PID solution is in the `feature/socket` branch.
+
 Run
-- `mvn clean package`
-- `java -jar target/player-0.0.1.jar`
+- `chmod a+x start.sh`
+- `./start.sh`
